@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<style>
+    body{
+          background-color: black;
+          animation-name: body;
+          animation-duration: 7s;
+          animation-iteration-count: infinite;
+    }
+    @keyframes body
+    {
+      0% {background-color: rgb(217, 255, 242);}
+      50% {background-color: rgb(100, 255, 203)}
+      100% {background-color: rgb(217, 255, 242);}
+    }
+  #submit{
+    background-color: rgb(229, 229, 229);
+    width: 100%;
+    border: 0px;
+    border-radius: 1.5px;
+    cursor: pointer;
+    height: 35px;
+  }
+  #submit:hover{
+    background-color: rgb(215, 215, 215);
+  }
+    button:hover{
+        color: black;
+    border-bottom: 3px solid blue;
+    background-color: rgb(240, 237, 237);
+    text-decoration: none;
+  }
+  button{
+    border: white;
+    background-color: white;
+  }
+  #myfname:hover,#mymname:hover,#mylname:hover,#mymob:hover,#myemail:hover,#mypass:hover,#myrpass:hover{
+    background-color: rgb(245, 245, 245);
+  }
+  #req{
+    color: red;
+  }
+  .sign{
+    color: rgb(36, 81, 36);
+    text-decoration: underline;
+  }
+
+  table{
+    background-color: white;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 1.7px 1.7px 1.7px blue;
+  }
+  
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<head>
+    <title>Signup</title>
+</head>
+<body>
+    <script>
+        function validate(){
+            var temp=1;
+          temp=nameval();
+          if(temp==0)
+          {
+            return 9;
+          }
+          temp=numberval();
+          if(temp==0)
+          {
+            return 9;
+          }
+          temp=emailval();
+          if(temp==0)
+          {
+            return 9;
+          }
+          temp=passval();
+          if(temp==0)
+          {
+            return 9;
+          }
+          if(temp==1)
+          {
+              after();
+          }
+        }
+        function nameval(){
+          if(document.getElementById("myfname").value=='')
+          {
+            alert("Enter your First name");
+            return 0;
+          }
+          if(document.getElementById("mylname").value=='')
+          {
+            alert("Enter your Last name");
+            return 0;
+          }
+          return 1;
+          
+        }
+
+        function numberval(){
+          var temp1=document.getElementById("mymob").value;
+          if(temp1=='')
+          {
+            alert("Enter your Mobile Number");
+            return 0;
+          }
+          if(isNaN(temp1))
+          {
+            alert("Enter valid Mobile Number");
+            return 0;
+          }
+          if(temp1<9999999||temp1>999999999999)
+          {
+            alert("Enter valid Mobile Number");
+            return 0;
+          }
+          return 1;
+        }
+
+        function emailval(){
+          var temp1=document.getElementById("myemail").value;
+          if(temp1=='')
+          {
+            alert("Enter your Email");
+            return 0;
+          }
+          var atpos=0;
+          atpos=temp1.indexOf('@');
+          var dotpos=0;
+          dotpos=temp1.indexOf('.com');
+          
+          if((atpos==0)||(dotpos==0)||(atpos>dotpos))
+          {
+            alert("Enter a valid Email");
+            return 0;
+          }
+          return 1;
+        }
+        function passval(){
+          var temp1=document.getElementById("mypass").value;
+          var temp2=document.getElementById("myrpass").value;
+          if(temp1=='')
+          {
+            alert("Create a password");
+            return 0;
+          }
+          if(temp1.length<7)
+          {
+            alert("Password should be minimum 7 Characters");
+            return 0;
+          }
+          if(temp1!=temp2)
+          {
+            alert("The Entered Password are not the same");
+            return 0;
+          }
+          return 1;
+        }
+
+        function after(){
+          var name=concat();
+            Swal.fire(
+            'Hey '+name+"!",
+            "Welcome to Shaif's Cuisine <br /><br />You will be redirected to Login page now",
+            'success'
+        );
+            setTimeout(function() {  window.open("home.html");}, 5000);
+        }
+
+        function concat(){
+            var first=document.getElementById("myfname").value;
+            var middle=document.getElementById("mymname").value;
+            var last=document.getElementById("mylname").value;
+            if(middle=='')
+            {
+                return (first+" "+last);
+            }
+            else{
+                return (first+" "+middle+" "+last);
+            }
+        }
+        function reverthome(){
+          window.open("home.html");
+        }
+    </script>
+    <h1 style="font-size:50px;font-family: sans-serif;color: rgb(12, 74, 12);" align="center">
+      Royal Cuisine
+    </h1>
+    <table align="center" id="table" cellspacing="10px" style="vertical-align: center;">
+        <tr height="45px">
+          <td colspan="2">
+            <button value="Signin" style="width: 50%;height: 45px;font-size: 23px;" onclick="reverthome()"><b>Signin</b></button><button value="Signup" style="width: 50%;height: 45px;font-size: 23px;" class="sign"><b>Signup</b></button>
+        </td>
+        </tr>
+        <form id="myform">
+            <tr height="50px">
+                <td style="font-size: 19px;font-family: Arial, Helvetica, sans-serif;"><label for="myfname">First name<span id="req">*</span></label></td>
+                <td><input type="text" placeholder="First Name"  id="myfname" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);" ></td>
+            </tr>
+            <tr height="30px">
+                <td style="font-size: 19px;font-family: Arial, Helvetica, sans-serif;"><label for="mymname">Middle name</label></td>
+                <td><input type="text" placeholder="Middle name"  id="mymname" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);"></td>
+            </tr>
+            <tr height="50px">
+                <td style="font-size: 19px;font-family: Arial, Helvetica, sans-serif;"><label for="mylname">Last name<span id="req">*</span></label></td>
+                <td><input type="text" placeholder="Last name"  id="mylname" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);" ></td>
+            </tr>
+            <tr height="35px">
+                <td style="font-size: 19px;font-family: Arial, Helvetica, sans-serif;"><label for="mymob">Mobile<span id="req">*</span></label></td>
+                <td><input type="text" placeholder="Mobile"  id="mymob" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);" ></td>
+            </tr>
+            <tr height="43px">
+                <td style="font-size: 19px;font-family: Arial, Helvetica, sans-serif;"><label for="myemail">Email<span id="req">*</span></label></td>
+                <td><input type="text" placeholder="Email"  id="myemail" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);" ></td>
+            </tr>
+            <tr height="43px">
+                <td style="font-size: 19px;font-family: Arial, Helvetica, sans-serif;"><label for="mypass">Password<span id="req">*</span></label></td>
+                <td><input type="password" placeholder="Password"  id="mypass" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);" ></td>
+            </tr>
+            <tr height="43px">
+                <td style="font-size: 19px;font-family: Arial, Helvetica, sans-serif;"><label for="mycpass">Reenter Password<span id="req">*</span></label></td>
+                <td><input type="password" placeholder="Reenter Password"  id="myrpass" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);" ></td>
+            </tr>
+        <tr height="75px">
+            <td></td>
+            <td ><div align="right"><input type="reset" value="Sign up" id="submit" style="font-size: 20px;" onclick="validate()"></div> </td>
+        </tr>
+        </form>
+</body>
+</html>

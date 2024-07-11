@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking | Royal Cuisine</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./globalStyles.css"> 
+  <link rel="stylesheet" href="./booking.css"> 
+  
+</head>
+
+<script>
+function validate(){
+var x;
+x=document.getElementById("email").value;
+
+if(x.includes(".")==flase)
+{
+  document.getElementById("email").setCustomValidity("pls enter @ and .")
+   
+}
+}
+  function myFunction() {
+     var element = document.body;
+     element.classList.toggle("dark-mode");
+     
+  }
+  </script>
+  
+
+
+
+
+<body >
+  <!-- Nav Section -->
+  <div class="nav" style="background-color:rgb(42, 42, 42);">
+    <div class="container">
+      <div class="nav__wrapper">
+        <a  href="./index.html" class="logo">
+          <img src="images\sJyEK501.svg" style="height:100px ;width :200px" alt="cuisine">
+        </a>
+        <nav>
+          <ul class="nav__list">
+            <div class="nav__list__wrapper">
+              <li><a class="nav__link" href="./home.html">Home</a></li>
+              <li><a class="nav__link" href="./menu3.html">Menu</a></li>
+              <li><a class="nav__link" href="./about2.html">About</a></li>
+              <li><a class="nav__link" href="./Contact.html">Contact</a></li>
+              <li><a href="./booking2.html" class="btn">Book Table</a></li>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- End Nav Section -->
+  <hr>
+
+  <!-- Booking Section -->
+  <section id="form" data-aos="fade-up"> 
+    <div class="container">
+      <h2 class="form__title" >Book Table &nbsp&nbsp<button  onclick="myFunction()" style="width: 50px; height:auto; background-color:black ;border-radius: 6px;">&#128526</button></h2>
+    
+      <div class="form__wrapper">
+        <form action="thankyou.html"autocomplete="off"  name="booking" method="POST" netlify>
+          <div class="form__group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="First Name" required>
+          </div>
+          <div class="form__group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="Last Name" required>
+          </div>
+          <div class="form__group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email"  required>
+          </div>
+          <div class="form__group">
+            <label for="tableType">Table Type</label>
+            <select name="Table Type" id="tableType" required>
+              <option value="" selected disabled>Choose</option>
+              <option value="small" >Small(2 persons)&#128100&#128100</option>
+              <option value="medium">Medium(4 persons)&#128100&#128100&#128100&#128100</option>
+              <option value="large">large(6 persons)&#128100&#128100&#128100&#128100&#128100&#128100</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label for="guestNumber">Guest Number</label>
+            <input type="number" id="guestNumber" name="Guest Number" min="1" max="10" required>
+          </div>
+          <div class="form__group">
+            <label for="placement">Placement</label>
+            <select name="Placement" id="placement" required>
+              <option value="" selected disabled>Choose</option>
+              <option value="outdoor">Outdoor</option>
+              <option value="indoor">Indoor</option>
+              <option value="rooftop">rooftop</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="Date" required>
+          </div>
+          <div class="form__group">
+            <label for="time">time</label>
+            <input type="time" id="time" name="Time" required>
+          </div>
+          <div class="form__group form__group__full">
+            <label for="note">Note</label>
+            <textarea name="Note" id="note" rows="4"></textarea>
+          </div>
+          <button style="border: 2px solid white;" type="submit" onclick="validate()" class="btn">Book Table</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- End Booking Section -->
+  <hr>
+  <!-- Footer -->
+  <footer >
+    <div class="container">
+      <div class="footer__wrapper">
+        <div class="footer__col1">
+          <div class="footer__logo">
+            <img src="images\sJyEK501.svg" style="height:110px ;width :200px" alt="cuisine">
+          </div>
+          <p class="footer__desc">
+            Fresh and delicious traditional food to delight the whole family.
+          </p>
+          
+        </div>
+        <div class="footer__col2">
+          <h2 class="footer__text__title">
+            Links
+          </h2>
+          <ol class="footer__text">
+            <li>
+              <a href="./home.html">Home</a>
+            </li>
+            <li>
+              <a href="./menu3.html">Menu</a>
+            </li>
+            <li>
+              <a href="./booking2.html">Book Table</a>
+            </li>
+            <li>
+              <a href="./about.html">About Us</a>
+            </li>
+            <li>
+              <a href="./Contact.html">contact Us</a>
+            </li>
+            <li>
+              <a href="#">Privacy Policy</a>
+            </li>
+          </ol>
+        </div>
+        <div class="footer__col3">
+          <h2 class="footer__text__title">
+            Support
+          </h2>
+          <ol class="footer__text">
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <a href="#">Support Center</a>
+            </li>
+            <li>
+              <a href="#">Feedback</a>
+            </li>
+          </ol>
+        </div>
+        <div class="footer__col4">
+          <h2 class="footer__text__title">
+            Contact
+          </h2>
+          <ol class="footer__text">
+            <li>
+              <a href="#">+880123</a>
+            </li>
+            <li>
+              <a href="#">webcifar@gmail.com</a>
+            </li>
+            <li>
+              <a href="#">GEC Circle, Chittagong, India</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <hr>
+  <div style=" background-color: lightgrey;" id="copyright">
+    <div class="container">
+      <p class="copyright__text">
+        © copyright 2021 Royal Cuisine | All rights reserved
+      </p>
+    </div>
+  </div>
+  <!-- End Footer -->
+  
+  <!-- custom scripts -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
+

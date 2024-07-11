@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<style>
+  
+  #submit{
+    background-color: rgb(229, 229, 229);
+    width: 100%;
+    border: 0px;
+    border-radius: 1.5px;
+    cursor: pointer;
+    height: 35px;
+  }
+  #submit:hover{
+    background-color: rgb(215, 215, 215);
+  }
+  button:hover{
+      color: black;
+    border-bottom: 3px solid blue;
+    background-color: rgb(240, 237, 237);
+    text-decoration: none;
+  }
+  button{
+    border: white;
+    background-color: white;
+  }
+  #myname:hover,#mypass:hover{
+    background-color: rgb(245, 245, 245);
+  }
+  .sign{
+    color: rgb(36, 81, 36);
+    text-decoration: underline;
+  }
+
+  #req{
+    color: red;
+  }
+  #table{
+    background-color: white;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 8px;
+    box-shadow: 0px 0px 2px 2px green;
+  }
+
+</style>
+<head>
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    function validate(){
+          var temp=1;
+          temp=mailval();
+          if(temp==0)
+          {
+            return 9;
+          }
+          temp=passval();
+          if(temp==0)
+          {
+            return 9;
+          }
+          if(temp==1)
+          {
+              after();
+          }
+        }
+        var temp2=document.getElementById("myname").value;
+        function mailval(){
+          var temp1=document.getElementById("myname").value;
+          if(temp1=='')
+          {
+            alert("Enter Username");
+            return 0;
+          }
+          
+          var atpos=0;
+          var atpos=temp1.indexOf("@royal.cui");
+          if (atpos<2)
+          {
+            alert("Enter valid user name as firstname@royal.cui");
+            return 0;
+          }
+          temp2=temp1.split("@royal.cui");
+          return 1;
+        }
+        function passval(){
+          var temp1=document.getElementById("mypass").value;
+          if(temp1=='')
+          {
+            alert("Enter your password");
+            return 0;
+          }
+          if(temp1.length<7)
+          {
+            alert("Entered Password is not valid");
+            return 0;
+          }
+          return 1;
+        }
+        function after(){
+          document.write('<div style="font-size:40px;font-family: cursive;color: red;font-style:italic;" align="center">'+'Hello '+temp2+'</div>'+'<div style="font-size:30px;font-family: serif;line-height: 50px;" align="center">'+'Welcome to the most elagant cuisine!'+'</div>'+'<div style="font-size:30px;font-family: cursive;color: brown;font-style:italic;" align="center">'+'Have a nice day!'+'</div>');
+        }
+        function revertsignup(){
+          window.open("signup.html");
+        }
+  </script>
+  <table align="center" id="table" cellspacing="10px">
+    <tr height="45px">
+      <td colspan="2">
+        <button value="Signin" style="width: 50%;height: 45px;font-size: 23px;" class="sign"><b>Signin</b></button><button value="Signup" style="width: 50%;height: 45px;font-size: 23px;" onclick="revertsignup()"><b>Signup</b></button>
+    </td>
+    </tr>
+    
+    <form id="myform">
+      <tr height="50px">
+        <td style="font-size: 18px;font-family: Arial, Helvetica, sans-serif;"><label for="myname">Username<span id="req">*</span></label></td>
+        <td><input type="text" placeholder="yourfirstname@royal.cui"  id="myname" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);" required></td>
+      </tr>
+      <tr height="30px">
+        <td style="font-size: 18px;font-family: Arial, Helvetica, sans-serif;"><label for="mypass">Password<span id="req">*</span></label></td>
+        <td><input type="password" placeholder="password"  id="mypass" style="border: 1.5px solid rgb(189, 189, 189);height: 25px;border-radius: 2px;font-size: 16px;font-family: 'Times New Roman', Times, serif;color: rgb(45, 45, 45);" required></td>
+      </tr>
+      <tr height="70px">
+        <td></td>
+        <td ><div align="right"><input type="reset" value="Login" id="submit" style="font-size: 20px;" onclick="validate()"></div> </td>
+
+      </tr>
+    </form>
+</body>
+</html>
